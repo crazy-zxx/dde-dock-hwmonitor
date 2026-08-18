@@ -13,6 +13,8 @@
 点击 Dock 中的监控文字会弹出设置面板，可配置显示项显隐、排序、单行/双行显示、
 文字颜色以及亮/暗主题（自动跟随系统或手动指定）。
 
+<img width="40%"  alt="image" src="https://github.com/user-attachments/assets/96ac4bcd-47d7-4e75-9c3f-f7ac4b7ab238" />   &nbsp; &nbsp; &nbsp; &nbsp; <img width="40%"  alt="image" src="https://github.com/user-attachments/assets/fcf64592-ceb3-4dac-8906-eb83dbb9a919" />
+
 ## 特性
 
 | 功能 | 说明 |
