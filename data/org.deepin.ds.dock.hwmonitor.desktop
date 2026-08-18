@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=硬件监控
+Name[en]=Hardware Monitor
+GenericName=系统监视器
+GenericName[en]=System Monitor
+Comment=在任务栏显示 CPU/GPU/内存占用、温度与网速
+Comment[en]=Show CPU/GPU/MEM usage, temperatures and network speed in the dock
+Exec=hwmonitor-launcher
+Icon=org.deepin.ds.dock.hwmonitor
+Terminal=false
+Categories=Utility;Monitor;
+Keywords=monitor;hardware;cpu;gpu;memory;temperature;network;温度;监控;硬件;
+StartupNotify=false

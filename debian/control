@@ -1,0 +1,22 @@
+Source: dde-dock-hwmonitor
+Section: utils
+Priority: optional
+Maintainer: HwMonitor contributors <hwmonitor@example.com>
+Build-Depends: debhelper (>= 13), cmake, ninja-build,
+               libdde-shell-dev (>= 2.0), libdtk6core-dev, libdtk6gui-dev,
+               qt6-base-dev, qt6-declarative-dev, qt6-tools-dev
+Standards-Version: 4.6.0
+
+Package: dde-dock-hwmonitor
+Version: 1.0.0
+Section: utils
+Priority: optional
+Architecture: amd64
+Depends: dde-shell (>= 2.0), libdde-shell (>= 2.0),
+         libdtk6core, libdtk6gui
+Maintainer: HwMonitor contributors <hwmonitor@example.com>
+Description: DDE Dock hardware monitor plugin
+ A dde-shell plugin that shows hardware info directly in the Deepin/UOS
+ Dock: CPU/GPU/MEM usage, CPU/GPU temperature and upload/download speed.
+ Click the monitor text to open the settings panel (show/hide items,
+ ordering, single/double line, custom colors, theme mode, font, width).

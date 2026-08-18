@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="screenGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1f6feb"/>
+      <stop offset="1" stop-color="#0a3d91"/>
+    </linearGradient>
+    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4cd964" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#4cd964" stop-opacity="0.05"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 显示器外框 -->
+  <rect x="14" y="18" width="100" height="72" rx="10" fill="url(#screenGrad)"/>
+  <rect x="20" y="24" width="88" height="60" rx="6" fill="#0e1420"/>
+
+  <!-- 折线图 -->
+  <polygon points="28,70 46,56 58,64 76,40 88,50 100,34 100,74 28,74"
+           fill="url(#chartGrad)"/>
+  <polyline points="28,70 46,56 58,64 76,40 88,50 100,34"
+            fill="none" stroke="#4cd964" stroke-width="4.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- 数据点 -->
+  <circle cx="46" cy="56" r="3.4" fill="#7cf29c"/>
+  <circle cx="76" cy="40" r="3.4" fill="#7cf29c"/>
+  <circle cx="100" cy="34" r="3.4" fill="#7cf29c"/>
+
+  <!-- 底座 -->
+  <rect x="56" y="90" width="16" height="14" rx="2" fill="#9aa0a6"/>
+  <rect x="34" y="104" width="60" height="9" rx="4.5" fill="#9aa0a6"/>
+</svg>

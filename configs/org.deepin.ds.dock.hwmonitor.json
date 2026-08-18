@@ -1,0 +1,247 @@
+{
+ "magic": "dsg.config.meta",
+ "version": "1.0",
+ "contents": {
+  "themeMode": {
+   "value": "auto",
+   "serial": 0,
+   "flags": [],
+   "name": "Theme Mode",
+   "name[zh_CN]": "主题模式",
+   "description": "auto follows the system theme; light/dark forces a theme.",
+   "description[zh_CN]": "auto 跟随系统主题，light/dark 手动指定亮色/暗色主题。",
+   "permissions": "readwrite"
+  },
+  "displayMode": {
+   "value": "single",
+   "serial": 0,
+   "flags": [],
+   "name": "Display Mode",
+   "name[zh_CN]": "显示模式",
+   "description": "single line or double line in the dock.",
+   "description[zh_CN]": "在 Dock 中单行或双行显示。",
+   "permissions": "readwrite"
+  },
+  "useCustomColor": {
+   "value": false,
+   "serial": 0,
+   "flags": [],
+   "name": "Use Custom Text Color",
+   "name[zh_CN]": "使用自定义文字颜色",
+   "description": "Whether to use custom text colors.",
+   "description[zh_CN]": "是否使用自定义文字颜色。",
+   "permissions": "readwrite"
+  },
+  "textColorLight": {
+   "value": "#262626",
+   "serial": 0,
+   "flags": [],
+   "name": "Text Color (Light Theme)",
+   "name[zh_CN]": "亮色主题文字颜色",
+   "description": "Text color used when the active theme is light and custom color is enabled.",
+   "description[zh_CN]": "当启用自定义颜色且当前为亮色主题时使用的文字颜色。",
+   "permissions": "readwrite"
+  },
+  "textColorDark": {
+   "value": "#E6E6E6",
+   "serial": 0,
+   "flags": [],
+   "name": "Text Color (Dark Theme)",
+   "name[zh_CN]": "暗色主题文字颜色",
+   "description": "Text color used when the active theme is dark and custom color is enabled.",
+   "description[zh_CN]": "当启用自定义颜色且当前为暗色主题时使用的文字颜色。",
+   "permissions": "readwrite"
+  },
+  "itemOrder": {
+   "value": [
+    "cpu",
+    "gpu",
+    "memory",
+    "cputemp",
+    "gputemp",
+    "netspeed"
+   ],
+   "serial": 0,
+   "flags": [],
+   "name": "Item Order",
+   "name[zh_CN]": "监控项排序",
+   "description": "Display order of monitor items.",
+   "description[zh_CN]": "监控项的显示顺序。",
+   "permissions": "readwrite"
+  },
+  "visible_cpu": {
+   "value": true,
+   "serial": 0,
+   "flags": [],
+   "name": "Show CPU Usage",
+   "name[zh_CN]": "显示 CPU 使用率",
+   "description": "",
+   "permissions": "readwrite"
+  },
+  "visible_memory": {
+   "value": true,
+   "serial": 0,
+   "flags": [],
+   "name": "Show Memory Usage",
+   "name[zh_CN]": "显示 MEM 使用率",
+   "description": "",
+   "permissions": "readwrite"
+  },
+  "visible_gpu": {
+   "value": true,
+   "serial": 0,
+   "flags": [],
+   "name": "Show GPU Usage",
+   "name[zh_CN]": "显示 GPU 使用率",
+   "description": "",
+   "permissions": "readwrite"
+  },
+  "visible_cputemp": {
+   "value": true,
+   "serial": 0,
+   "flags": [],
+   "name": "Show CPU Temperature",
+   "name[zh_CN]": "显示 CPU 温度",
+   "description": "",
+   "permissions": "readwrite"
+  },
+  "visible_gputemp": {
+   "value": true,
+   "serial": 0,
+   "flags": [],
+   "name": "Show GPU Temperature",
+   "name[zh_CN]": "显示 GPU 温度",
+   "description": "",
+   "permissions": "readwrite"
+  },
+  "visible_netspeed": {
+   "value": true,
+   "serial": 0,
+   "flags": [],
+   "name": "Show Network Speed",
+   "name[zh_CN]": "显示上传下载速度",
+   "description": "",
+   "permissions": "readwrite"
+  },
+  "pollInterval": {
+   "value": 1000,
+   "serial": 0,
+   "flags": [],
+   "name": "Poll Interval",
+   "name[zh_CN]": "刷新间隔",
+   "description": "Hardware info refresh interval in milliseconds.",
+   "description[zh_CN]": "硬件信息刷新间隔（毫秒）。",
+   "permissions": "readwrite"
+  },
+  "dockPosition": {
+   "value": "right",
+   "serial": 0,
+   "flags": [],
+   "name": "Dock Position",
+   "name[zh_CN]": "显示位置",
+   "description": "left or right side of the dock.",
+   "description[zh_CN]": "在任务栏左侧或右侧显示。",
+   "permissions": "readwrite"
+  },
+  "netInterface": {
+   "value": "",
+   "serial": 0,
+   "flags": [],
+   "name": "Network Interface",
+   "name[zh_CN]": "监视网卡",
+   "description": "Empty means all non-loopback interfaces.",
+   "description[zh_CN]": "留空表示统计全部非回环网卡。",
+   "permissions": "readwrite"
+  },
+  "width_cpu": {
+   "value": 0,
+   "serial": 0,
+   "flags": [],
+   "name": "CPU Usage Width (chars)",
+   "name[zh_CN]": "CPU Usage 占位宽度（字符）",
+   "description": "Reserved character width for the item value; 0 means auto.",
+   "description[zh_CN]": "该条目数值预留的占位字符宽度，0 表示自动。",
+   "permissions": "readwrite"
+  },
+  "width_memory": {
+   "value": 0,
+   "serial": 0,
+   "flags": [],
+   "name": "Memory Usage Width (chars)",
+   "name[zh_CN]": "Memory Usage 占位宽度（字符）",
+   "description": "Reserved character width for the item value; 0 means auto.",
+   "description[zh_CN]": "该条目数值预留的占位字符宽度，0 表示自动。",
+   "permissions": "readwrite"
+  },
+  "width_gpu": {
+   "value": 0,
+   "serial": 0,
+   "flags": [],
+   "name": "GPU Usage Width (chars)",
+   "name[zh_CN]": "GPU Usage 占位宽度（字符）",
+   "description": "Reserved character width for the item value; 0 means auto.",
+   "description[zh_CN]": "该条目数值预留的占位字符宽度，0 表示自动。",
+   "permissions": "readwrite"
+  },
+  "width_cputemp": {
+   "value": 0,
+   "serial": 0,
+   "flags": [],
+   "name": "CPU Temperature Width (chars)",
+   "name[zh_CN]": "CPU Temperature 占位宽度（字符）",
+   "description": "Reserved character width for the item value; 0 means auto.",
+   "description[zh_CN]": "该条目数值预留的占位字符宽度，0 表示自动。",
+   "permissions": "readwrite"
+  },
+  "width_gputemp": {
+   "value": 0,
+   "serial": 0,
+   "flags": [],
+   "name": "GPU Temperature Width (chars)",
+   "name[zh_CN]": "GPU Temperature 占位宽度（字符）",
+   "description": "Reserved character width for the item value; 0 means auto.",
+   "description[zh_CN]": "该条目数值预留的占位字符宽度，0 表示自动。",
+   "permissions": "readwrite"
+  },
+  "width_netspeed": {
+   "value": 0,
+   "serial": 0,
+   "flags": [],
+   "name": "Network Speed Width (chars)",
+   "name[zh_CN]": "Network Speed 占位宽度（字符）",
+   "description": "Reserved character width for the item value; 0 means auto.",
+   "description[zh_CN]": "该条目数值预留的占位字符宽度，0 表示自动。",
+   "permissions": "readwrite"
+  },
+  "fontFamily": {
+   "value": "DejaVu Sans Mono",
+   "serial": 0,
+   "flags": [],
+   "name": "Font Family",
+   "name[zh_CN]": "文字字体",
+   "description": "Monospace font family used for the dock text.",
+   "description[zh_CN]": "Dock 文字使用的等宽字体。",
+   "permissions": "readwrite"
+  },
+  "fontSize": {
+   "value": 10,
+   "serial": 0,
+   "flags": [],
+   "name": "Font Size",
+   "name[zh_CN]": "文字大小",
+   "description": "Font size in pixels.",
+   "description[zh_CN]": "文字大小（像素）。",
+   "permissions": "readwrite"
+  },
+  "enabled": {
+   "value": true,
+   "serial": 0,
+   "flags": [],
+   "name": "Enabled",
+   "name[zh_CN]": "启用",
+   "description": "Whether the monitor is enabled in the dock. Set false to quit (hide) the plugin.",
+   "description[zh_CN]": "是否在任务栏中启用监控。设为 false 即退出（隐藏）插件。",
+   "permissions": "readwrite"
+  }
+ }
+}

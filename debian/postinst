@@ -1,0 +1,24 @@
+#!/bin/sh
+set -e
+
+# Refresh DConfig metadata so the plugin settings are recognized.
+if command -v systemctl >/dev/null 2>&1; then
+    systemctl restart dde-dconfig-daemon.service >/dev/null 2>&1 || true
+fi
+
+# 刷新开始菜单与图标缓存，让 .desktop 立即出现在开始菜单
+if command -v update-desktop-database >/dev/null 2>&1; then
+    update-desktop-database /usr/share/applications >/dev/null 2>&1 || true
+fi
+if command -v gtk-update-icon-cache >/dev/null 2>&1; then
+    gtk-update-icon-cache -f /usr/share/icons/hicolor >/dev/null 2>&1 || true
+fi
+
+# Restart the user dock if possible (best effort, needs an active session).
+if [ -n "${SUDO_USER}" ]; then
+    su - "${SUDO_USER}" -c "systemctl --user restart dde-shell@DDE.service" >/dev/null 2>&1 || true
+elif [ -n "${USER}" ]; then
+    systemctl --user restart dde-shell@DDE.service >/dev/null 2>&1 || true
+fi
+
+exit 0
