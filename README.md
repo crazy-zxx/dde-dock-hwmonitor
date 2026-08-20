@@ -6,12 +6,13 @@
 - CPU 使用率
 - 内存使用率
 - GPU 使用率（AMD amdgpu / NVIDIA nvidia-smi）
+- 显存占用（AMD amdgpu / NVIDIA nvidia-smi）
 - CPU 温度（k10temp / coretemp 等）
 - GPU 温度（amdgpu / nvidia-smi）
-- 上传 / 下载速度
+- 上传 / 下载速度（可分别配置）
 
 点击 Dock 中的监控文字会弹出设置面板，可配置显示项显隐、排序、单行/双行显示、
-文字颜色以及亮/暗主题（自动跟随系统或手动指定）。
+文字颜色。主题始终自动跟随系统。
 
 <img width="40%"  alt="image" src="https://github.com/user-attachments/assets/96ac4bcd-47d7-4e75-9c3f-f7ac4b7ab238" />   &nbsp; &nbsp; &nbsp; &nbsp; <img width="40%"  alt="image" src="https://github.com/user-attachments/assets/fcf64592-ceb3-4dac-8906-eb83dbb9a919" />
 
@@ -19,17 +20,18 @@
 
 | 功能 | 说明 |
 |------|------|
-| 监控项显隐 | 设置面板中勾选/取消勾选每个监控项 |
+| 监控项显隐 | 设置面板中勾选/取消勾选每个监控项（上传、下载独立） |
 | 监控项排序 | 每个监控项右侧 ↑ / ↓ 按钮调整显示顺序 |
 | 单行/双行显示 | `displayMode`：`single` 单行 / `double` 双行 |
 | 文字颜色 | 支持「跟随主题」或自定义颜色，可分别设置亮色/暗色主题下的颜色 |
-| 主题模式 | `auto` 跟随系统；`light` / `dark` 手动固定 |
+| 主题模式 | 自动跟随系统主题 |
 | 刷新间隔 | `pollInterval`，默认 1000ms（200~10000ms） |
 | 显示位置 | `dockPosition`：`left` 任务栏左侧 / `right` 任务栏右侧 |
 | 监视网卡 | `netInterface`：留空统计全部非回环网卡，或指定单个网卡（如 `wlp3s0`） |
-| 条目占位宽度 | `width_cpu` / `width_memory` / `width_gpu` / `width_cputemp` / `width_gputemp` / `width_netspeed`：为每个条目的数值预留固定字符宽度（0=自动），避免数值位数变化引起 Dock 宽度抖动 |
+| 条目占位宽度 | `width_cpu` / `width_memory` / `width_gpu` / `width_gpumem` / `width_cputemp` / `width_gputemp` 默认 3，`width_netup` / `width_netdown` 默认 5；设置为 0 可恢复自动宽度，避免数值位数变化引起 Dock 宽度抖动 |
 | 等宽字体 | Dock 中标签与数值统一使用等宽字体，保证相同字符数的条目占位宽度一致（% 与 ° 等字形笔画宽度略有差异属正常现象） |
-| 文字字体/大小 | `fontFamily`（默认 DejaVu Sans Mono）与 `fontSize`（默认 10px）：在设置面板可切换字体（DejaVu Sans Mono / Noto Mono / Source Code Pro / Liberation Mono / 系统默认）与调整大小（6~24px） |
+| 文字字体/大小 | `fontFamily`（默认 Source Han Mono SC）与 `fontSize`（默认 10px）：优先使用中英文等宽字体，设置面板也可切换 Noto Sans Mono CJK SC、DejaVu Sans Mono、Noto Mono、Source Code Pro、Liberation Mono 或系统默认，并调整大小（6~24px） |
+| 多语言对齐 | 每个条目使用统一行高并垂直居中，避免中文字体回退后与拉丁字母出现基线/高度偏移；需要严格中英文等宽时选择 CJK 等宽字体 |
 | 文字颜色还原 | 设置面板「文字颜色」旁提供还原默认按钮（`resetTextColors`），一键恢复默认颜色与关闭自定义颜色 |
 | 设置持久化 | 全部设置通过 DConfig 保存，重启后自动恢复 |
 | 开始菜单图标 | 安装后自动在开始菜单添加「硬件监控」图标（`data/` 下的 .desktop + SVG 图标 + 启动脚本），点击图标可重新启用已退出的插件并刷新任务栏 |
@@ -142,8 +144,9 @@ systemctl --user restart dde-shell@DDE.service
 
 - 安装并重启 Dock 后，插件默认显示在任务栏右侧（托盘附近，`dockOrder = 21`）。
 - 左键点击监控文字 → 打开设置面板。
+- “退出监控”只禁用并隐藏本插件，不会退出或重启 dde-shell，因此不会影响系统主题切换和其他 Dock 插件。
 - 设置面板中可勾选显示项、用 ↑ / ↓ 排序、切换单行/双行、
-  选择主题模式（自动/亮色/暗色）、启用自定义颜色并分别设置亮/暗主题下的文字颜色。
+  启用自定义颜色并分别设置亮/暗主题下的文字颜色，主题自动跟随系统。
 
 ## 硬件信息来源
 
@@ -158,7 +161,7 @@ systemctl --user restart dde-shell@DDE.service
 | GPU 使用率 | AMD：`/sys/class/drm/card*/device/gpu_busy_percent`；NVIDIA：`nvidia-smi` |
 | CPU 温度 | `/sys/class/hwmon/*/temp*_input`（k10temp/coretemp/zenpower 等，优先 Tctl/Tdie/Package） |
 | GPU 温度 | `/sys/class/hwmon/*/temp*_input`（amdgpu）或 `nvidia-smi` |
-| 上传/下载速度 | `/proc/net/dev`（排除 lo，按刷新间隔计算速率） |
+| 上传/下载速度 | `/proc/net/dev`（排除 lo，按刷新间隔计算速率，上传/下载独立显示） |
 
 ## 测试验证
 
@@ -169,7 +172,7 @@ systemctl --user restart dde-shell@DDE.service
 - 左键点击打开设置面板
 - 单行/双行切换生效
 - 监控项显隐、排序生效
-- 主题模式（自动/亮色/暗色）与自定义文字颜色生效
+- 主题自动跟随系统，自定义文字颜色生效
 - 设置通过 DConfig 持久化，重启后保留
 
 ## 国际化说明

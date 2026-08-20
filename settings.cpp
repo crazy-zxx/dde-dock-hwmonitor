@@ -11,6 +11,8 @@
 namespace {
 constexpr char kAppId[] = "org.deepin.dde.shell";
 constexpr char kConfigId[] = "org.deepin.ds.dock.hwmonitor";
+constexpr int kDefaultItemWidth = 3;
+constexpr int kDefaultNetworkWidth = 5;
 }
 
 Settings::Settings(QObject *parent)
@@ -32,12 +34,6 @@ void Settings::reload()
     auto value = [this](const char *key, const QVariant &fallback) {
         return m_config && m_config->isValid() ? m_config->value(QLatin1String(key), fallback) : fallback;
     };
-
-    const QString themeMode = value("themeMode", m_themeMode).toString();
-    if (themeMode != m_themeMode) {
-        m_themeMode = themeMode;
-        Q_EMIT themeModeChanged();
-    }
 
     const QString displayMode = value("displayMode", m_displayMode).toString();
     if (displayMode != m_displayMode) {
@@ -88,10 +84,17 @@ void Settings::reload()
     }
 
     const QStringList itemOrder = value("itemOrder", m_itemOrder).toStringList();
+    const bool legacyNetItems = itemOrder.contains(QStringLiteral("netspeed"));
     QStringList filtered;
     for (const QString &id : itemOrder) {
-        if (m_itemKeys.contains(id) && !filtered.contains(id))
+        if (id == QLatin1String("netspeed")) {
+            if (!filtered.contains(QStringLiteral("netup")))
+                filtered.append(QStringLiteral("netup"));
+            if (!filtered.contains(QStringLiteral("netdown")))
+                filtered.append(QStringLiteral("netdown"));
+        } else if (m_itemKeys.contains(id) && !filtered.contains(id)) {
             filtered.append(id);
+        }
     }
     for (const QString &id : m_itemKeys) {
         if (!filtered.contains(id))
@@ -103,8 +106,14 @@ void Settings::reload()
     }
 
     QVariantMap visible;
+    const bool legacyNetVisible = value("visible_netspeed", true).toBool();
     for (const QString &id : m_itemKeys) {
-        visible.insert(id, value(("visible_" + id).toUtf8().constData(), true).toBool());
+        const bool isNetItem = id == QLatin1String("netup") || id == QLatin1String("netdown");
+        const bool fallback = isNetItem ? legacyNetVisible : true;
+        const bool visibleValue = legacyNetItems && isNetItem
+                ? legacyNetVisible
+                : value(("visible_" + id).toUtf8().constData(), fallback).toBool();
+        visible.insert(id, visibleValue);
     }
     if (visible != m_itemVisible) {
         m_itemVisible = visible;
@@ -112,8 +121,14 @@ void Settings::reload()
     }
 
     QVariantMap width;
+    const int legacyNetWidth = value("width_netspeed", 0).toInt();
     for (const QString &id : m_itemKeys) {
-        width.insert(id, value(("width_" + id).toUtf8().constData(), 0).toInt());
+        const bool isNetItem = id == QLatin1String("netup") || id == QLatin1String("netdown");
+        const int fallback = isNetItem ? kDefaultNetworkWidth : kDefaultItemWidth;
+        const int widthValue = legacyNetItems && isNetItem
+                ? legacyNetWidth
+                : value(("width_" + id).toUtf8().constData(), fallback).toInt();
+        width.insert(id, widthValue);
     }
     if (width != m_itemWidth) {
         m_itemWidth = width;
@@ -131,16 +146,6 @@ void Settings::reload()
         m_enabled = enabled;
         Q_EMIT enabledChanged();
     }
-}
-
-void Settings::setThemeMode(const QString &mode)
-{
-    if (mode == m_themeMode)
-        return;
-    m_themeMode = mode;
-    if (m_config && m_config->isValid())
-        m_config->setValue(QStringLiteral("themeMode"), mode);
-    Q_EMIT themeModeChanged();
 }
 
 void Settings::setDisplayMode(const QString &mode)
@@ -258,8 +263,14 @@ void Settings::setItemOrder(const QStringList &order)
 {
     QStringList filtered;
     for (const QString &id : order) {
-        if (m_itemKeys.contains(id) && !filtered.contains(id))
+        if (id == QLatin1String("netspeed")) {
+            if (!filtered.contains(QStringLiteral("netup")))
+                filtered.append(QStringLiteral("netup"));
+            if (!filtered.contains(QStringLiteral("netdown")))
+                filtered.append(QStringLiteral("netdown"));
+        } else if (m_itemKeys.contains(id) && !filtered.contains(id)) {
             filtered.append(id);
+        }
     }
     for (const QString &id : m_itemKeys) {
         if (!filtered.contains(id))

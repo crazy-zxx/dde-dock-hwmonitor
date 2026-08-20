@@ -1,4 +1,4 @@
-# Install script for directory: /home/zhao/Desktop/AI/hwmonitor
+# Install script for directory: /home/zhao/Desktop/AI/dde-dock-hwmonitor
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -51,7 +51,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/share/dsg/configs/org.deepin.dde.shell" TYPE FILE FILES "/home/zhao/Desktop/AI/hwmonitor/configs/org.deepin.ds.dock.hwmonitor.json")
+  file(INSTALL DESTINATION "/usr/share/dsg/configs/org.deepin.dde.shell" TYPE FILE FILES "/home/zhao/Desktop/AI/dde-dock-hwmonitor/configs/org.deepin.ds.dock.hwmonitor.json")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -63,7 +63,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/share/applications" TYPE FILE FILES "/home/zhao/Desktop/AI/hwmonitor/data/org.deepin.ds.dock.hwmonitor.desktop")
+  file(INSTALL DESTINATION "/usr/share/applications" TYPE FILE FILES "/home/zhao/Desktop/AI/dde-dock-hwmonitor/data/org.deepin.ds.dock.hwmonitor.desktop")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -75,7 +75,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/share/icons/hicolor/scalable/apps" TYPE FILE FILES "/home/zhao/Desktop/AI/hwmonitor/data/icons/org.deepin.ds.dock.hwmonitor.svg")
+  file(INSTALL DESTINATION "/usr/share/icons/hicolor/scalable/apps" TYPE FILE FILES "/home/zhao/Desktop/AI/dde-dock-hwmonitor/data/icons/org.deepin.ds.dock.hwmonitor.svg")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -87,7 +87,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/share/icons/hicolor/16x16/apps" TYPE FILE FILES "/home/zhao/Desktop/AI/hwmonitor/data/icons/hicolor/16x16/apps/org.deepin.ds.dock.hwmonitor.png")
+  file(INSTALL DESTINATION "/usr/share/icons/hicolor/16x16/apps" TYPE FILE FILES "/home/zhao/Desktop/AI/dde-dock-hwmonitor/data/icons/hicolor/16x16/apps/org.deepin.ds.dock.hwmonitor.png")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -99,7 +99,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/share/icons/hicolor/24x24/apps" TYPE FILE FILES "/home/zhao/Desktop/AI/hwmonitor/data/icons/hicolor/24x24/apps/org.deepin.ds.dock.hwmonitor.png")
+  file(INSTALL DESTINATION "/usr/share/icons/hicolor/24x24/apps" TYPE FILE FILES "/home/zhao/Desktop/AI/dde-dock-hwmonitor/data/icons/hicolor/24x24/apps/org.deepin.ds.dock.hwmonitor.png")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -111,7 +111,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/share/icons/hicolor/32x32/apps" TYPE FILE FILES "/home/zhao/Desktop/AI/hwmonitor/data/icons/hicolor/32x32/apps/org.deepin.ds.dock.hwmonitor.png")
+  file(INSTALL DESTINATION "/usr/share/icons/hicolor/32x32/apps" TYPE FILE FILES "/home/zhao/Desktop/AI/dde-dock-hwmonitor/data/icons/hicolor/32x32/apps/org.deepin.ds.dock.hwmonitor.png")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -123,7 +123,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/share/icons/hicolor/48x48/apps" TYPE FILE FILES "/home/zhao/Desktop/AI/hwmonitor/data/icons/hicolor/48x48/apps/org.deepin.ds.dock.hwmonitor.png")
+  file(INSTALL DESTINATION "/usr/share/icons/hicolor/48x48/apps" TYPE FILE FILES "/home/zhao/Desktop/AI/dde-dock-hwmonitor/data/icons/hicolor/48x48/apps/org.deepin.ds.dock.hwmonitor.png")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -135,7 +135,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/share/icons/hicolor/64x64/apps" TYPE FILE FILES "/home/zhao/Desktop/AI/hwmonitor/data/icons/hicolor/64x64/apps/org.deepin.ds.dock.hwmonitor.png")
+  file(INSTALL DESTINATION "/usr/share/icons/hicolor/64x64/apps" TYPE FILE FILES "/home/zhao/Desktop/AI/dde-dock-hwmonitor/data/icons/hicolor/64x64/apps/org.deepin.ds.dock.hwmonitor.png")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -147,7 +147,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/share/icons/hicolor/128x128/apps" TYPE FILE FILES "/home/zhao/Desktop/AI/hwmonitor/data/icons/hicolor/128x128/apps/org.deepin.ds.dock.hwmonitor.png")
+  file(INSTALL DESTINATION "/usr/share/icons/hicolor/128x128/apps" TYPE FILE FILES "/home/zhao/Desktop/AI/dde-dock-hwmonitor/data/icons/hicolor/128x128/apps/org.deepin.ds.dock.hwmonitor.png")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -159,7 +159,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/share/icons/hicolor/256x256/apps" TYPE FILE FILES "/home/zhao/Desktop/AI/hwmonitor/data/icons/hicolor/256x256/apps/org.deepin.ds.dock.hwmonitor.png")
+  file(INSTALL DESTINATION "/usr/share/icons/hicolor/256x256/apps" TYPE FILE FILES "/home/zhao/Desktop/AI/dde-dock-hwmonitor/data/icons/hicolor/256x256/apps/org.deepin.ds.dock.hwmonitor.png")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -171,7 +171,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/bin" TYPE PROGRAM RENAME "hwmonitor-launcher" FILES "/home/zhao/Desktop/AI/hwmonitor/data/hwmonitor-launcher.sh")
+  file(INSTALL DESTINATION "/usr/bin" TYPE PROGRAM RENAME "hwmonitor-launcher" FILES "/home/zhao/Desktop/AI/dde-dock-hwmonitor/data/hwmonitor-launcher.sh")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -183,7 +183,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/share/dde-shell/org.deepin.ds.dock.hwmonitor" TYPE DIRECTORY FILES "/home/zhao/Desktop/AI/hwmonitor/build/packages/org.deepin.ds.dock.hwmonitor/")
+  file(INSTALL DESTINATION "/usr/share/dde-shell/org.deepin.ds.dock.hwmonitor" TYPE DIRECTORY FILES "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/packages/org.deepin.ds.dock.hwmonitor/")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -201,7 +201,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/lib/x86_64-linux-gnu/dde-shell" TYPE SHARED_LIBRARY FILES "/home/zhao/Desktop/AI/hwmonitor/build/plugins/org.deepin.ds.dock.hwmonitor.so")
+  file(INSTALL DESTINATION "/usr/lib/x86_64-linux-gnu/dde-shell" TYPE SHARED_LIBRARY FILES "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/plugins/org.deepin.ds.dock.hwmonitor.so")
   if(EXISTS "$ENV{DESTDIR}/usr/lib/x86_64-linux-gnu/dde-shell/org.deepin.ds.dock.hwmonitor.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}/usr/lib/x86_64-linux-gnu/dde-shell/org.deepin.ds.dock.hwmonitor.so")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -214,7 +214,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/zhao/Desktop/AI/hwmonitor/build/CMakeFiles/ds-dock-hwmonitor.dir/install-cxx-module-bmi-Release.cmake" OPTIONAL)
+  include("/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/CMakeFiles/ds-dock-hwmonitor.dir/install-cxx-module-bmi-Release.cmake" OPTIONAL)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -227,36 +227,36 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   file(INSTALL DESTINATION "/usr/share/dde-shell/org.deepin.ds.dock.hwmonitor/translations" TYPE FILE FILES
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_ar.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_az.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_bo.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_ca.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_de.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_es.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_fi.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_fr.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_hu.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_it.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_ja.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_ko.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_lo.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_nb_NO.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_pl.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_pt_BR.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_ru.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_sq.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_uk.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_zh_CN.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_zh_HK.qm"
-    "/home/zhao/Desktop/AI/hwmonitor/build/org.deepin.ds.dock.hwmonitor_zh_TW.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_ar.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_az.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_bo.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_ca.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_de.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_es.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_fi.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_fr.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_hu.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_it.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_ja.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_ko.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_lo.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_nb_NO.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_pl.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_pt_BR.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_ru.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_sq.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_uk.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_zh_CN.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_zh_HK.qm"
+    "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/org.deepin.ds.dock.hwmonitor_zh_TW.qm"
     )
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/zhao/Desktop/AI/hwmonitor/build/install_local_manifest.txt"
+  file(WRITE "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -272,6 +272,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/zhao/Desktop/AI/hwmonitor/build/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

@@ -17,6 +17,7 @@ Depends: dde-shell (>= 2.0), libdde-shell (>= 2.0),
 Maintainer: HwMonitor contributors <hwmonitor@example.com>
 Description: DDE Dock hardware monitor plugin
  A dde-shell plugin that shows hardware info directly in the Deepin/UOS
- Dock: CPU/GPU/MEM usage, CPU/GPU temperature and upload/download speed.
+ Dock: CPU/GPU/VRAM/memory usage, CPU/GPU temperature and independent
+ upload/download speeds.
  Click the monitor text to open the settings panel (show/hide items,
- ordering, single/double line, custom colors, theme mode, font, width).
+ ordering, single/double line, custom colors, font and per-item width).

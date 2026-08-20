@@ -17,13 +17,11 @@ class DConfig;
 /**
  * @brief 通过 DConfig 持久化的插件设置
  *
- * 设置项：主题模式（自动/亮色/暗色）、单行/双行显示、
- * 监控项显隐与排序、自定义文字颜色、刷新间隔。
+ * 设置项：单行/双行显示、监控项显隐与排序、自定义文字颜色、刷新间隔。
  */
 class Settings : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString themeMode READ themeMode WRITE setThemeMode NOTIFY themeModeChanged FINAL)
     Q_PROPERTY(QString displayMode READ displayMode WRITE setDisplayMode NOTIFY displayModeChanged FINAL)
     Q_PROPERTY(QString dockPosition READ dockPosition WRITE setDockPosition NOTIFY dockPositionChanged FINAL)
     Q_PROPERTY(QString netInterface READ netInterface WRITE setNetInterface NOTIFY netInterfaceChanged FINAL)
@@ -42,7 +40,6 @@ class Settings : public QObject
 public:
     explicit Settings(QObject *parent = nullptr);
 
-    QString themeMode() const { return m_themeMode; }
     QString displayMode() const { return m_displayMode; }
     QString dockPosition() const { return m_dockPosition; }
     QString netInterface() const { return m_netInterface; }
@@ -58,7 +55,6 @@ public:
     bool enabled() const { return m_enabled; }
     QStringList itemKeys() const { return m_itemKeys; }
 
-    Q_INVOKABLE void setThemeMode(const QString &mode);
     Q_INVOKABLE void setDisplayMode(const QString &mode);
     Q_INVOKABLE void setDockPosition(const QString &position);
     Q_INVOKABLE void setNetInterface(const QString &iface);
@@ -76,7 +72,6 @@ public:
     Q_INVOKABLE void setItemWidth(const QString &id, int chars);
 
 Q_SIGNALS:
-    void themeModeChanged();
     void displayModeChanged();
     void dockPositionChanged();
     void netInterfaceChanged();
@@ -96,21 +91,22 @@ private:
 
     Dtk::Core::DConfig *m_config = nullptr;
 
-    QString m_themeMode = QStringLiteral("auto");
     QString m_displayMode = QStringLiteral("single");
     QString m_dockPosition = QStringLiteral("right");
     QString m_netInterface;
-    QString m_fontFamily = QStringLiteral("DejaVu Sans Mono");
+    QString m_fontFamily = QStringLiteral("Source Han Mono SC");
     int m_fontSize = 10;
     bool m_useCustomColor = false;
     QString m_textColorLight = QStringLiteral("#262626");
     QString m_textColorDark = QStringLiteral("#E6E6E6");
-    QStringList m_itemOrder = {QStringLiteral("cpu"), QStringLiteral("gpu"), QStringLiteral("memory"),
-                               QStringLiteral("cputemp"), QStringLiteral("gputemp"), QStringLiteral("netspeed")};
+    QStringList m_itemOrder = {QStringLiteral("cpu"), QStringLiteral("gpu"), QStringLiteral("gpumem"),
+                               QStringLiteral("memory"), QStringLiteral("cputemp"), QStringLiteral("gputemp"),
+                               QStringLiteral("netup"), QStringLiteral("netdown")};
     QVariantMap m_itemVisible;
     QVariantMap m_itemWidth;
     int m_pollInterval = 1000;
     bool m_enabled = true;
     const QStringList m_itemKeys = {QStringLiteral("cpu"), QStringLiteral("memory"), QStringLiteral("gpu"),
-                                    QStringLiteral("cputemp"), QStringLiteral("gputemp"), QStringLiteral("netspeed")};
+                                    QStringLiteral("gpumem"), QStringLiteral("cputemp"), QStringLiteral("gputemp"),
+                                    QStringLiteral("netup"), QStringLiteral("netdown")};
 };

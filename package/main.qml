@@ -18,7 +18,7 @@ AppletItem {
     // ---- Dock 排序与可见性 ----
     // dockOrder 决定所在区域：左侧 0~10、中间 10~20、右侧 20~30（托盘附近）
     property int dockOrder: settings.dockPosition === "left" ? 5 : 21
-    // shouldVisible 由 Dock 过滤：false 时插件从任务栏隐藏（即“退出程序”）
+    // shouldVisible 由 Dock 过滤：false 时插件从任务栏隐藏。
     property bool shouldVisible: settings ? settings.enabled : true
 
     // ---- 布局 ----
@@ -26,9 +26,11 @@ AppletItem {
     readonly property bool useColumnLayout: inPanel && (Panel.position % 2 === 1)
     readonly property int dockSize: inPanel ? Panel.rootObject.dockSize : 48
 
-    // 文字大小与字体来自设置面板（默认 10px / DejaVu Sans Mono）
+    // 文字大小与字体来自设置面板（默认 10px / Source Han Mono SC）
     readonly property int fontSize: settings && settings.fontSize > 0 ? settings.fontSize : 10
-    readonly property string monoFontFamily: settings && settings.fontFamily ? settings.fontFamily : "DejaVu Sans Mono"
+    readonly property string monoFontFamily: settings && settings.fontFamily ? settings.fontFamily : "Source Han Mono SC"
+    // 拉丁字母和 CJK 字体回退的 ascent/descent 可能不同，统一行盒后再垂直居中。
+    readonly property int textLineHeight: Math.max(fontSize + 4, 16)
 
     // 用于按字符数固定条目宽度
     TextMetrics {
@@ -76,11 +78,13 @@ AppletItem {
     function itemLabel(key) {
         switch (key) {
         case "cpu": return qsTr("CPU")
-        case "memory": return qsTr("MEM")
+        case "memory": return qsTr("内存")
         case "gpu": return qsTr("GPU")
+        case "gpumem": return qsTr("显存")
         case "cputemp": return qsTr("CPU")
         case "gputemp": return qsTr("GPU")
-        case "netspeed": return ""
+        case "netup": return "↑"
+        case "netdown": return "↓"
         }
         return ""
     }
@@ -90,9 +94,11 @@ AppletItem {
         case "cpu": return backend.cpuUsage.toFixed(0) + "%"
         case "memory": return backend.memUsage.toFixed(0) + "%"
         case "gpu": return backend.gpuAvailable ? backend.gpuUsage.toFixed(0) + "%" : qsTr("N/A")
+        case "gpumem": return backend.gpuMemoryAvailable ? backend.gpuMemoryUsage.toFixed(0) + "%" : qsTr("N/A")
         case "cputemp": return backend.cpuTempAvailable ? backend.cpuTemp.toFixed(0) + "°" : qsTr("N/A")
         case "gputemp": return backend.gpuTempAvailable ? backend.gpuTemp.toFixed(0) + "°" : qsTr("N/A")
-        case "netspeed": return "↓" + formatSpeed(backend.netDownSpeed) + " ↑" + formatSpeed(backend.netUpSpeed)
+        case "netup": return formatSpeed(backend.netUpSpeed)
+        case "netdown": return formatSpeed(backend.netDownSpeed)
         }
         return ""
     }
@@ -101,10 +107,13 @@ AppletItem {
     // 单行显示条目组件：数值可按字符数固定占位宽度，避免数值位数变化引起抖动
     component MonitorText: Row {
         property string itemKey: ""
+        height: root.textLineHeight
         spacing: 2
         readonly property int reservedChars: (root.settings.itemWidth[itemKey] || 0)
         Text {
             text: root.itemLabel(itemKey)
+            height: root.textLineHeight
+            verticalAlignment: Text.AlignVCenter
             color: root.textColor
             font.family: root.monoFontFamily
             font.pixelSize: root.fontSize
@@ -112,6 +121,8 @@ AppletItem {
         }
         Text {
             text: root.itemValue(itemKey)
+            height: root.textLineHeight
+            verticalAlignment: Text.AlignVCenter
             color: root.textColor
             font.family: root.monoFontFamily
             font.pixelSize: root.fontSize
@@ -181,18 +192,12 @@ AppletItem {
         settingsPopup.open()
     }
 
-    // 退出程序：关闭设置面板 → 持久化禁用（重启后不再显示）→ 停止监控 → 退出 dde-shell 进程
-    // dde-shell@DDE.service 配置了 Restart=always，进程退出后 1 秒会自动重启任务栏。
+    // 退出监控：关闭设置面板并持久化禁用；后端收到 enabledChanged 后停止采集。
+    // 不退出 dde-shell 进程，避免影响 Dock 的主题、窗口和其他插件状态。
     function quitApp() {
         settingsPopup.close()
         if (root.settings)
             root.settings.setEnabled(false)
-        quitTimer.start()
-    }
-    Timer {
-        id: quitTimer
-        interval: 300
-        onTriggered: Qt.quit()
     }
 
     PanelPopup {

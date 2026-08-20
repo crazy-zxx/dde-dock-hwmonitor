@@ -23,23 +23,25 @@ Item {
     readonly property real contentHeight: contentCol.childrenRect.height + 40
     height: Math.min(560, Math.max(340, contentHeight))
 
-    // 点击“退出程序”时发出，由 main.qml 负责关闭弹窗并退出程序
+    // 点击“退出监控”时发出，由 main.qml 负责关闭弹窗并禁用插件
     signal quitRequested()
 
 
     function itemName(key) {
         switch (key) {
         case "cpu": return qsTr("CPU 使用率")
-        case "memory": return qsTr("MEM 使用率")
+        case "memory": return qsTr("内存使用率")
         case "gpu": return qsTr("GPU 使用率")
+        case "gpumem": return qsTr("显存占用")
         case "cputemp": return qsTr("CPU 温度")
         case "gputemp": return qsTr("GPU 温度")
-        case "netspeed": return qsTr("上传/下载速度")
+        case "netup": return qsTr("上传速度")
+        case "netdown": return qsTr("下载速度")
         }
         return key
     }
 
-    readonly property var fontModel: ["DejaVu Sans Mono", "Noto Mono", "Source Code Pro", "Liberation Mono", qsTr("系统默认")]
+    readonly property var fontModel: ["Source Han Mono SC", "Noto Sans Mono CJK SC", "DejaVu Sans Mono", "Noto Mono", "Source Code Pro", "Liberation Mono", qsTr("系统默认")]
 
     readonly property var netIfModel: [qsTr("全部接口")].concat(root.monitor ? root.monitor.netInterfaces : [])
     readonly property int netIfIndex: {
@@ -141,31 +143,6 @@ Item {
             onActivated: function (index) {
                 if (root.settings)
                     root.settings.setNetInterface(index === 0 ? "" : root.netIfModel[index])
-            }
-        }
-
-        // ---------- 主题模式 ----------
-        Text {
-            text: qsTr("主题模式")
-            font.pixelSize: 13
-            color: root.subTextColor
-        }
-        Row {
-            spacing: 16
-            D.RadioButton {
-                text: qsTr("自动（跟随系统）")
-                checked: root.settings && root.settings.themeMode === "auto"
-                onToggled: if (checked && root.settings) root.settings.setThemeMode("auto")
-            }
-            D.RadioButton {
-                text: qsTr("亮色")
-                checked: root.settings && root.settings.themeMode === "light"
-                onToggled: if (checked && root.settings) root.settings.setThemeMode("light")
-            }
-            D.RadioButton {
-                text: qsTr("暗色")
-                checked: root.settings && root.settings.themeMode === "dark"
-                onToggled: if (checked && root.settings) root.settings.setThemeMode("dark")
             }
         }
 
@@ -411,10 +388,10 @@ Item {
             }
         }
 
-        // ---------- 退出程序 ----------
+        // ---------- 退出监控 ----------
         Item { width: 1; height: 6 }
         D.Button {
-            text: qsTr("退出程序")
+            text: qsTr("退出监控")
             onClicked: root.quitRequested()
         }
             }

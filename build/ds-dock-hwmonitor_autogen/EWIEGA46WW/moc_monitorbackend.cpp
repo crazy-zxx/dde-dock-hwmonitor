@@ -45,11 +45,13 @@ constexpr auto qt_meta_stringdata_CLASSMonitorBackendENDCLASS = QtMocHelpers::st
     "cpuUsage",
     "memUsage",
     "gpuUsage",
+    "gpuMemoryUsage",
     "cpuTemp",
     "gpuTemp",
     "netDownSpeed",
     "netUpSpeed",
     "gpuAvailable",
+    "gpuMemoryAvailable",
     "cpuTempAvailable",
     "gpuTempAvailable",
     "pollInterval",
@@ -67,20 +69,20 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMonitorBackendENDCLASS[] = {
        0,       // classname
        0,    0, // classinfo
        5,   14, // methods
-      12,   49, // properties
+      14,   49, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   44,    2, 0x06,   13 /* Public */,
-       3,    0,   45,    2, 0x06,   14 /* Public */,
-       4,    0,   46,    2, 0x06,   15 /* Public */,
+       1,    0,   44,    2, 0x06,   15 /* Public */,
+       3,    0,   45,    2, 0x06,   16 /* Public */,
+       4,    0,   46,    2, 0x06,   17 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       5,    0,   47,    2, 0x08,   16 /* Private */,
-       6,    0,   48,    2, 0x08,   17 /* Private */,
+       5,    0,   47,    2, 0x08,   18 /* Private */,
+       6,    0,   48,    2, 0x08,   19 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -99,11 +101,13 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMonitorBackendENDCLASS[] = {
       11, QMetaType::Double, 0x00015801, uint(0), 0,
       12, QMetaType::Double, 0x00015801, uint(0), 0,
       13, QMetaType::Double, 0x00015801, uint(0), 0,
-      14, QMetaType::Bool, 0x00015801, uint(1), 0,
+      14, QMetaType::Double, 0x00015801, uint(0), 0,
       15, QMetaType::Bool, 0x00015801, uint(1), 0,
-      16, QMetaType::Bool, 0x00015801, uint(1), 0,
-      17, QMetaType::Int, 0x00015903, uint(2), 0,
-      18, QMetaType::QStringList, 0x00015c01, uint(-1), 0,
+      16, QMetaType::Bool, 0x00015801, uint(0), 0,
+      17, QMetaType::Bool, 0x00015801, uint(1), 0,
+      18, QMetaType::Bool, 0x00015801, uint(1), 0,
+      19, QMetaType::Int, 0x00015903, uint(2), 0,
+      20, QMetaType::QStringList, 0x00015c01, uint(-1), 0,
 
        0        // eod
 };
@@ -121,6 +125,8 @@ Q_CONSTINIT const QMetaObject MonitorBackend::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<double, std::true_type>,
         // property 'gpuUsage'
         QtPrivate::TypeAndForceComplete<double, std::true_type>,
+        // property 'gpuMemoryUsage'
+        QtPrivate::TypeAndForceComplete<double, std::true_type>,
         // property 'cpuTemp'
         QtPrivate::TypeAndForceComplete<double, std::true_type>,
         // property 'gpuTemp'
@@ -130,6 +136,8 @@ Q_CONSTINIT const QMetaObject MonitorBackend::staticMetaObject = { {
         // property 'netUpSpeed'
         QtPrivate::TypeAndForceComplete<double, std::true_type>,
         // property 'gpuAvailable'
+        QtPrivate::TypeAndForceComplete<bool, std::true_type>,
+        // property 'gpuMemoryAvailable'
         QtPrivate::TypeAndForceComplete<bool, std::true_type>,
         // property 'cpuTempAvailable'
         QtPrivate::TypeAndForceComplete<bool, std::true_type>,
@@ -199,15 +207,17 @@ void MonitorBackend::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 0: *reinterpret_cast< double*>(_v) = _t->cpuUsage(); break;
         case 1: *reinterpret_cast< double*>(_v) = _t->memUsage(); break;
         case 2: *reinterpret_cast< double*>(_v) = _t->gpuUsage(); break;
-        case 3: *reinterpret_cast< double*>(_v) = _t->cpuTemp(); break;
-        case 4: *reinterpret_cast< double*>(_v) = _t->gpuTemp(); break;
-        case 5: *reinterpret_cast< double*>(_v) = _t->netDownSpeed(); break;
-        case 6: *reinterpret_cast< double*>(_v) = _t->netUpSpeed(); break;
-        case 7: *reinterpret_cast< bool*>(_v) = _t->gpuAvailable(); break;
-        case 8: *reinterpret_cast< bool*>(_v) = _t->cpuTempAvailable(); break;
-        case 9: *reinterpret_cast< bool*>(_v) = _t->gpuTempAvailable(); break;
-        case 10: *reinterpret_cast< int*>(_v) = _t->pollInterval(); break;
-        case 11: *reinterpret_cast< QStringList*>(_v) = _t->netInterfaces(); break;
+        case 3: *reinterpret_cast< double*>(_v) = _t->gpuMemoryUsage(); break;
+        case 4: *reinterpret_cast< double*>(_v) = _t->cpuTemp(); break;
+        case 5: *reinterpret_cast< double*>(_v) = _t->gpuTemp(); break;
+        case 6: *reinterpret_cast< double*>(_v) = _t->netDownSpeed(); break;
+        case 7: *reinterpret_cast< double*>(_v) = _t->netUpSpeed(); break;
+        case 8: *reinterpret_cast< bool*>(_v) = _t->gpuAvailable(); break;
+        case 9: *reinterpret_cast< bool*>(_v) = _t->gpuMemoryAvailable(); break;
+        case 10: *reinterpret_cast< bool*>(_v) = _t->cpuTempAvailable(); break;
+        case 11: *reinterpret_cast< bool*>(_v) = _t->gpuTempAvailable(); break;
+        case 12: *reinterpret_cast< int*>(_v) = _t->pollInterval(); break;
+        case 13: *reinterpret_cast< QStringList*>(_v) = _t->netInterfaces(); break;
         default: break;
         }
     } else if (_c == QMetaObject::WriteProperty) {
@@ -215,7 +225,7 @@ void MonitorBackend::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         (void)_t;
         void *_v = _a[0];
         switch (_id) {
-        case 10: _t->setPollInterval(*reinterpret_cast< int*>(_v)); break;
+        case 12: _t->setPollInterval(*reinterpret_cast< int*>(_v)); break;
         default: break;
         }
     } else if (_c == QMetaObject::ResetProperty) {
@@ -254,7 +264,7 @@ int MonitorBackend::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
             || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 14;
     }
     return _id;
 }

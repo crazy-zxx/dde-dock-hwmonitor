@@ -22,11 +22,13 @@ class MonitorBackend : public QObject
     Q_PROPERTY(double cpuUsage READ cpuUsage NOTIFY updated FINAL)
     Q_PROPERTY(double memUsage READ memUsage NOTIFY updated FINAL)
     Q_PROPERTY(double gpuUsage READ gpuUsage NOTIFY updated FINAL)
+    Q_PROPERTY(double gpuMemoryUsage READ gpuMemoryUsage NOTIFY updated FINAL)
     Q_PROPERTY(double cpuTemp READ cpuTemp NOTIFY updated FINAL)
     Q_PROPERTY(double gpuTemp READ gpuTemp NOTIFY updated FINAL)
     Q_PROPERTY(double netDownSpeed READ netDownSpeed NOTIFY updated FINAL)
     Q_PROPERTY(double netUpSpeed READ netUpSpeed NOTIFY updated FINAL)
     Q_PROPERTY(bool gpuAvailable READ gpuAvailable NOTIFY availabilityChanged FINAL)
+    Q_PROPERTY(bool gpuMemoryAvailable READ gpuMemoryAvailable NOTIFY updated FINAL)
     Q_PROPERTY(bool cpuTempAvailable READ cpuTempAvailable NOTIFY availabilityChanged FINAL)
     Q_PROPERTY(bool gpuTempAvailable READ gpuTempAvailable NOTIFY availabilityChanged FINAL)
     Q_PROPERTY(int pollInterval READ pollInterval WRITE setPollInterval NOTIFY pollIntervalChanged FINAL)
@@ -41,11 +43,13 @@ public:
     double cpuUsage() const { return m_cpuUsage; }
     double memUsage() const { return m_memUsage; }
     double gpuUsage() const { return m_gpuUsage; }
+    double gpuMemoryUsage() const { return m_gpuMemoryUsage; }
     double cpuTemp() const { return m_cpuTemp; }
     double gpuTemp() const { return m_gpuTemp; }
     double netDownSpeed() const { return m_netDownSpeed; }
     double netUpSpeed() const { return m_netUpSpeed; }
     bool gpuAvailable() const { return m_gpuAvailable; }
+    bool gpuMemoryAvailable() const { return m_gpuMemoryAvailable; }
     bool cpuTempAvailable() const { return m_cpuTempAvailable; }
     bool gpuTempAvailable() const { return m_gpuTempAvailable; }
     int pollInterval() const { return m_pollInterval; }
@@ -75,6 +79,7 @@ private:
     void readCpuUsage();
     void readMemUsage();
     void readGpu();
+    void readGpuMemory();
     void readTemps();
     void readNetSpeed();
 
@@ -91,12 +96,14 @@ private:
     double m_cpuUsage = 0.0;
     double m_memUsage = 0.0;
     double m_gpuUsage = -1.0;
+    double m_gpuMemoryUsage = -1.0;
     double m_cpuTemp = -1.0;
     double m_gpuTemp = -1.0;
     double m_netDownSpeed = 0.0;
     double m_netUpSpeed = 0.0;
 
     bool m_gpuAvailable = false;
+    bool m_gpuMemoryAvailable = false;
     bool m_cpuTempAvailable = false;
     bool m_gpuTempAvailable = false;
 
@@ -108,6 +115,8 @@ private:
     // GPU
     GpuKind m_gpuKind = GpuKind::NoGpu;
     QString m_gpuBusyPath;
+    QString m_gpuMemoryUsedPath;
+    QString m_gpuMemoryTotalPath;
     QProcess *m_nvidiaProcess = nullptr;
 
     // 温度

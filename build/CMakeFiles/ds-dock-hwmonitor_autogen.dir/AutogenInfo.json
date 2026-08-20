@@ -1,16 +1,16 @@
 {
-	"BUILD_DIR" : "/home/zhao/Desktop/AI/hwmonitor/build/ds-dock-hwmonitor_autogen",
-	"CMAKE_BINARY_DIR" : "/home/zhao/Desktop/AI/hwmonitor/build",
-	"CMAKE_CURRENT_BINARY_DIR" : "/home/zhao/Desktop/AI/hwmonitor/build",
-	"CMAKE_CURRENT_SOURCE_DIR" : "/home/zhao/Desktop/AI/hwmonitor",
+	"BUILD_DIR" : "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/ds-dock-hwmonitor_autogen",
+	"CMAKE_BINARY_DIR" : "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/zhao/Desktop/AI/dde-dock-hwmonitor",
 	"CMAKE_EXECUTABLE" : "/usr/bin/cmake",
 	"CMAKE_LIST_FILES" : 
 	[
-		"/home/zhao/Desktop/AI/hwmonitor/CMakeLists.txt",
-		"/home/zhao/Desktop/AI/hwmonitor/build/CMakeFiles/3.31.4/CMakeSystem.cmake",
+		"/home/zhao/Desktop/AI/dde-dock-hwmonitor/CMakeLists.txt",
+		"/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/CMakeFiles/3.31.4/CMakeSystem.cmake",
 		"/usr/share/cmake-3.31/Modules/CMakeSystemSpecificInitialize.cmake",
 		"/usr/share/cmake-3.31/Modules/Platform/Linux-Initialize.cmake",
-		"/home/zhao/Desktop/AI/hwmonitor/build/CMakeFiles/3.31.4/CMakeCXXCompiler.cmake",
+		"/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/CMakeFiles/3.31.4/CMakeCXXCompiler.cmake",
 		"/usr/share/cmake-3.31/Modules/CMakeSystemSpecificInformation.cmake",
 		"/usr/share/cmake-3.31/Modules/CMakeGenericSystem.cmake",
 		"/usr/share/cmake-3.31/Modules/CMakeInitializeConfigs.cmake",
@@ -361,34 +361,34 @@
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake",
 		"/usr/share/cmake-3.31/Modules/CMakeParseArguments.cmake"
 	],
-	"CMAKE_SOURCE_DIR" : "/home/zhao/Desktop/AI/hwmonitor",
+	"CMAKE_SOURCE_DIR" : "/home/zhao/Desktop/AI/dde-dock-hwmonitor",
 	"CROSS_CONFIG" : false,
-	"DEP_FILE" : "/home/zhao/Desktop/AI/hwmonitor/build/ds-dock-hwmonitor_autogen/deps",
+	"DEP_FILE" : "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/ds-dock-hwmonitor_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "ds-dock-hwmonitor_autogen/timestamp",
 	"HEADERS" : 
 	[
 		[
-			"/home/zhao/Desktop/AI/hwmonitor/hwmonitorapplet.h",
+			"/home/zhao/Desktop/AI/dde-dock-hwmonitor/hwmonitorapplet.h",
 			"Mu",
 			"EWIEGA46WW/moc_hwmonitorapplet.cpp",
 			null
 		],
 		[
-			"/home/zhao/Desktop/AI/hwmonitor/monitorbackend.h",
+			"/home/zhao/Desktop/AI/dde-dock-hwmonitor/monitorbackend.h",
 			"Mu",
 			"EWIEGA46WW/moc_monitorbackend.cpp",
 			null
 		],
 		[
-			"/home/zhao/Desktop/AI/hwmonitor/settings.h",
+			"/home/zhao/Desktop/AI/dde-dock-hwmonitor/settings.h",
 			"Mu",
 			"EWIEGA46WW/moc_settings.cpp",
 			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "/home/zhao/Desktop/AI/hwmonitor/build/ds-dock-hwmonitor_autogen/include",
-	"MOC_COMPILATION_FILE" : "/home/zhao/Desktop/AI/hwmonitor/build/ds-dock-hwmonitor_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/ds-dock-hwmonitor_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/ds-dock-hwmonitor_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"DDE_SHELL_PACKAGE_PATH_SUBPATH=\"dde-shell\"",
@@ -467,22 +467,30 @@
 		"-c",
 		"/usr/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "/home/zhao/Desktop/AI/hwmonitor/build/ds-dock-hwmonitor_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/ds-dock-hwmonitor_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 8,
-	"PARSE_CACHE_FILE" : "/home/zhao/Desktop/AI/hwmonitor/build/CMakeFiles/ds-dock-hwmonitor_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/CMakeFiles/ds-dock-hwmonitor_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt6/libexec/moc",
 	"QT_UIC_EXECUTABLE" : "",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 8,
-	"SETTINGS_FILE" : "/home/zhao/Desktop/AI/hwmonitor/build/CMakeFiles/ds-dock-hwmonitor_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/CMakeFiles/ds-dock-hwmonitor_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "/home/zhao/Desktop/AI/hwmonitor/hwmonitorapplet.cpp", "Mu", null ],
-		[ "/home/zhao/Desktop/AI/hwmonitor/monitorbackend.cpp", "Mu", null ],
-		[ "/home/zhao/Desktop/AI/hwmonitor/settings.cpp", "Mu", null ]
+		[
+			"/home/zhao/Desktop/AI/dde-dock-hwmonitor/hwmonitorapplet.cpp",
+			"Mu",
+			null
+		],
+		[
+			"/home/zhao/Desktop/AI/dde-dock-hwmonitor/monitorbackend.cpp",
+			"Mu",
+			null
+		],
+		[ "/home/zhao/Desktop/AI/dde-dock-hwmonitor/settings.cpp", "Mu", null ]
 	],
 	"USE_BETTER_GRAPH" : true,
 	"VERBOSITY" : 0

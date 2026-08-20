@@ -1,8 +1,8 @@
-/home/zhao/Desktop/AI/hwmonitor/build/ds-dock-hwmonitor_autogen/include/hwmonitorapplet.moc: /home/zhao/Desktop/AI/hwmonitor/hwmonitorapplet.cpp \
-  /home/zhao/Desktop/AI/hwmonitor/build/ds-dock-hwmonitor_autogen/moc_predefs.h \
-  /home/zhao/Desktop/AI/hwmonitor/hwmonitorapplet.h \
-  /home/zhao/Desktop/AI/hwmonitor/monitorbackend.h \
-  /home/zhao/Desktop/AI/hwmonitor/settings.h \
+/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/ds-dock-hwmonitor_autogen/include/hwmonitorapplet.moc: /home/zhao/Desktop/AI/dde-dock-hwmonitor/hwmonitorapplet.cpp \
+  /home/zhao/Desktop/AI/dde-dock-hwmonitor/build/ds-dock-hwmonitor_autogen/moc_predefs.h \
+  /home/zhao/Desktop/AI/dde-dock-hwmonitor/hwmonitorapplet.h \
+  /home/zhao/Desktop/AI/dde-dock-hwmonitor/monitorbackend.h \
+  /home/zhao/Desktop/AI/dde-dock-hwmonitor/settings.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \

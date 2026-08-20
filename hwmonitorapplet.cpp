@@ -62,8 +62,6 @@ bool HwMonitorApplet::init()
 
     connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this,
             [this](DGuiApplicationHelper::ColorType) { updateThemeType(); });
-    connect(m_settings, &Settings::themeModeChanged, this, [this]() { updateThemeType(); });
-
     // 若上次退出过（enabled=false），启动时不采集
     if (m_settings->enabled())
         m_backend->start();
@@ -72,15 +70,7 @@ bool HwMonitorApplet::init()
 
 void HwMonitorApplet::updateThemeType()
 {
-    const QString mode = m_settings->themeMode();
-    int type = 0;
-    if (mode == QLatin1String("dark")) {
-        type = DGuiApplicationHelper::DarkType;
-    } else if (mode == QLatin1String("light")) {
-        type = DGuiApplicationHelper::LightType;
-    } else {
-        type = DGuiApplicationHelper::instance()->themeType();
-    }
+    const int type = DGuiApplicationHelper::instance()->themeType();
 
     if (type != m_themeType) {
         m_themeType = type;

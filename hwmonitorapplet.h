@@ -34,7 +34,7 @@ public:
     QObject *settings() const;
 
     /**
-     * @brief 生效的主题类型（已考虑手动覆盖）
+     * @brief 当前系统主题类型
      * @return Dtk::Gui::DGuiApplicationHelper::ColorType
      */
     int themeType() const { return m_themeType; }

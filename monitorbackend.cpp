@@ -52,6 +52,8 @@ void MonitorBackend::detectHardware()
         const QString busyPath = drmDir.filePath(card) + QStringLiteral("/device/gpu_busy_percent");
         if (QFile::exists(busyPath)) {
             m_gpuBusyPath = busyPath;
+            m_gpuMemoryUsedPath = drmDir.filePath(card) + QStringLiteral("/device/mem_info_vram_used");
+            m_gpuMemoryTotalPath = drmDir.filePath(card) + QStringLiteral("/device/mem_info_vram_total");
             m_gpuKind = GpuKind::AmdGpu;
             m_gpuAvailable = true;
             break;
@@ -283,6 +285,7 @@ void MonitorBackend::readGpu()
             m_gpuUsage = -1.0;
             m_gpuAvailable = false;
         }
+        readGpuMemory();
     } else if (m_gpuKind == GpuKind::NvidiaGpu) {
         // nvidia-smi 异步读取
         if (!m_nvidiaProcess) {
@@ -292,20 +295,52 @@ void MonitorBackend::readGpu()
         }
         if (m_nvidiaProcess->state() == QProcess::NotRunning) {
             m_nvidiaProcess->start(QStringLiteral("nvidia-smi"),
-                                   {QStringLiteral("--query-gpu=utilization.gpu,temperature.gpu"),
+                                   {QStringLiteral("--query-gpu=utilization.gpu,temperature.gpu,memory.used,memory.total"),
                                     QStringLiteral("--format=csv,noheader,nounits")});
         }
+    }
+}
+
+void MonitorBackend::readGpuMemory()
+{
+    if (m_gpuKind != GpuKind::AmdGpu || m_gpuMemoryUsedPath.isEmpty()
+        || m_gpuMemoryTotalPath.isEmpty()) {
+        return;
+    }
+
+    QFile usedFile(m_gpuMemoryUsedPath);
+    QFile totalFile(m_gpuMemoryTotalPath);
+    if (!usedFile.open(QIODevice::ReadOnly) || !totalFile.open(QIODevice::ReadOnly)) {
+        m_gpuMemoryUsage = -1.0;
+        m_gpuMemoryAvailable = false;
+        return;
+    }
+
+    bool usedOk = false;
+    bool totalOk = false;
+    const qulonglong used = usedFile.readAll().trimmed().toULongLong(&usedOk);
+    const qulonglong total = totalFile.readAll().trimmed().toULongLong(&totalOk);
+    if (usedOk && totalOk && total > 0) {
+        m_gpuMemoryUsage = qBound(0.0, used * 100.0 / total, 100.0);
+        m_gpuMemoryAvailable = true;
+    } else {
+        m_gpuMemoryUsage = -1.0;
+        m_gpuMemoryAvailable = false;
     }
 }
 
 void MonitorBackend::onNvidiaFinished()
 {
     const QByteArray out = m_nvidiaProcess->readAllStandardOutput();
-    const QStringList parts = QString::fromUtf8(out).trimmed().split(QLatin1Char(','));
-    if (parts.size() >= 2) {
+    const QString line = QString::fromUtf8(out).trimmed().split(QLatin1Char('\n')).value(0);
+    const QStringList parts = line.split(QLatin1Char(','));
+    if (parts.size() >= 4) {
         bool ok1 = false, ok2 = false;
+        bool ok3 = false, ok4 = false;
         const double usage = parts.value(0).trimmed().toDouble(&ok1);
         const double temp = parts.value(1).trimmed().toDouble(&ok2);
+        const double usedMemory = parts.value(2).trimmed().toDouble(&ok3);
+        const double totalMemory = parts.value(3).trimmed().toDouble(&ok4);
         if (ok1) {
             m_gpuUsage = qBound(0.0, usage, 100.0);
             m_gpuAvailable = true;
@@ -313,6 +348,13 @@ void MonitorBackend::onNvidiaFinished()
         if (ok2) {
             m_gpuTemp = temp;
             m_gpuTempAvailable = true;
+        }
+        if (ok3 && ok4 && totalMemory > 0) {
+            m_gpuMemoryUsage = qBound(0.0, usedMemory * 100.0 / totalMemory, 100.0);
+            m_gpuMemoryAvailable = true;
+        } else {
+            m_gpuMemoryUsage = -1.0;
+            m_gpuMemoryAvailable = false;
         }
         Q_EMIT updated();
     }

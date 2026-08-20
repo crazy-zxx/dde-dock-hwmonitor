@@ -2,16 +2,6 @@
  "magic": "dsg.config.meta",
  "version": "1.0",
  "contents": {
-  "themeMode": {
-   "value": "auto",
-   "serial": 0,
-   "flags": [],
-   "name": "Theme Mode",
-   "name[zh_CN]": "主题模式",
-   "description": "auto follows the system theme; light/dark forces a theme.",
-   "description[zh_CN]": "auto 跟随系统主题，light/dark 手动指定亮色/暗色主题。",
-   "permissions": "readwrite"
-  },
   "displayMode": {
    "value": "single",
    "serial": 0,
@@ -56,10 +46,12 @@
    "value": [
     "cpu",
     "gpu",
+    "gpumem",
     "memory",
     "cputemp",
     "gputemp",
-    "netspeed"
+    "netup",
+    "netdown"
    ],
    "serial": 0,
    "flags": [],
@@ -83,7 +75,7 @@
    "serial": 0,
    "flags": [],
    "name": "Show Memory Usage",
-   "name[zh_CN]": "显示 MEM 使用率",
+   "name[zh_CN]": "显示内存使用率",
    "description": "",
    "permissions": "readwrite"
   },
@@ -93,6 +85,15 @@
    "flags": [],
    "name": "Show GPU Usage",
    "name[zh_CN]": "显示 GPU 使用率",
+   "description": "",
+   "permissions": "readwrite"
+  },
+  "visible_gpumem": {
+   "value": true,
+   "serial": 0,
+   "flags": [],
+   "name": "Show VRAM Usage",
+   "name[zh_CN]": "显示显存占用",
    "description": "",
    "permissions": "readwrite"
   },
@@ -114,12 +115,21 @@
    "description": "",
    "permissions": "readwrite"
   },
-  "visible_netspeed": {
+  "visible_netup": {
    "value": true,
    "serial": 0,
    "flags": [],
-   "name": "Show Network Speed",
-   "name[zh_CN]": "显示上传下载速度",
+   "name": "Show Upload Speed",
+   "name[zh_CN]": "显示上传速度",
+   "description": "",
+   "permissions": "readwrite"
+  },
+  "visible_netdown": {
+   "value": true,
+   "serial": 0,
+   "flags": [],
+   "name": "Show Download Speed",
+   "name[zh_CN]": "显示下载速度",
    "description": "",
    "permissions": "readwrite"
   },
@@ -154,7 +164,7 @@
    "permissions": "readwrite"
   },
   "width_cpu": {
-   "value": 0,
+   "value": 3,
    "serial": 0,
    "flags": [],
    "name": "CPU Usage Width (chars)",
@@ -164,7 +174,7 @@
    "permissions": "readwrite"
   },
   "width_memory": {
-   "value": 0,
+   "value": 3,
    "serial": 0,
    "flags": [],
    "name": "Memory Usage Width (chars)",
@@ -173,8 +183,18 @@
    "description[zh_CN]": "该条目数值预留的占位字符宽度，0 表示自动。",
    "permissions": "readwrite"
   },
+  "width_gpumem": {
+   "value": 3,
+   "serial": 0,
+   "flags": [],
+   "name": "VRAM Usage Width (chars)",
+   "name[zh_CN]": "显存占用占位宽度（字符）",
+   "description": "Reserved character width for the item value; 0 means auto.",
+   "description[zh_CN]": "该条目数值预留的占位字符宽度，0 表示自动。",
+   "permissions": "readwrite"
+  },
   "width_gpu": {
-   "value": 0,
+   "value": 3,
    "serial": 0,
    "flags": [],
    "name": "GPU Usage Width (chars)",
@@ -184,7 +204,7 @@
    "permissions": "readwrite"
   },
   "width_cputemp": {
-   "value": 0,
+   "value": 3,
    "serial": 0,
    "flags": [],
    "name": "CPU Temperature Width (chars)",
@@ -194,7 +214,7 @@
    "permissions": "readwrite"
   },
   "width_gputemp": {
-   "value": 0,
+   "value": 3,
    "serial": 0,
    "flags": [],
    "name": "GPU Temperature Width (chars)",
@@ -203,24 +223,34 @@
    "description[zh_CN]": "该条目数值预留的占位字符宽度，0 表示自动。",
    "permissions": "readwrite"
   },
-  "width_netspeed": {
-   "value": 0,
+  "width_netup": {
+   "value": 5,
    "serial": 0,
    "flags": [],
-   "name": "Network Speed Width (chars)",
-   "name[zh_CN]": "Network Speed 占位宽度（字符）",
+   "name": "Upload Speed Width (chars)",
+   "name[zh_CN]": "上传速度占位宽度（字符）",
+   "description": "Reserved character width for the item value; 0 means auto.",
+   "description[zh_CN]": "该条目数值预留的占位字符宽度，0 表示自动。",
+   "permissions": "readwrite"
+  },
+  "width_netdown": {
+   "value": 5,
+   "serial": 0,
+   "flags": [],
+   "name": "Download Speed Width (chars)",
+   "name[zh_CN]": "下载速度占位宽度（字符）",
    "description": "Reserved character width for the item value; 0 means auto.",
    "description[zh_CN]": "该条目数值预留的占位字符宽度，0 表示自动。",
    "permissions": "readwrite"
   },
   "fontFamily": {
-   "value": "DejaVu Sans Mono",
+   "value": "Source Han Mono SC",
    "serial": 0,
    "flags": [],
    "name": "Font Family",
    "name[zh_CN]": "文字字体",
    "description": "Monospace font family used for the dock text.",
-   "description[zh_CN]": "Dock 文字使用的等宽字体。",
+   "description[zh_CN]": "Dock 文字使用的中英文等宽字体，保证不同语言字符宽度一致。",
    "permissions": "readwrite"
   },
   "fontSize": {

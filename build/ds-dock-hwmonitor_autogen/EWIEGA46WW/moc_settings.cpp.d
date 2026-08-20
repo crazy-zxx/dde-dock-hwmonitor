@@ -1,5 +1,5 @@
-/home/zhao/Desktop/AI/hwmonitor/build/ds-dock-hwmonitor_autogen/EWIEGA46WW/moc_settings.cpp: /home/zhao/Desktop/AI/hwmonitor/settings.h \
-  /home/zhao/Desktop/AI/hwmonitor/build/ds-dock-hwmonitor_autogen/moc_predefs.h \
+/home/zhao/Desktop/AI/dde-dock-hwmonitor/build/ds-dock-hwmonitor_autogen/EWIEGA46WW/moc_settings.cpp: /home/zhao/Desktop/AI/dde-dock-hwmonitor/settings.h \
+  /home/zhao/Desktop/AI/dde-dock-hwmonitor/build/ds-dock-hwmonitor_autogen/moc_predefs.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
